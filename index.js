@@ -22,6 +22,10 @@ const handlebars = require('express-handlebars')
       res.render('formularios')
     })
 
+    app.post('/add', function(req,res){
+      res.send('FORMULARIO RECEBIDO')
+    })
+
 app.listen(8081, function(){
     console.log("Servidor Rodando na url http://localhost:8081");
 });
