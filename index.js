@@ -15,8 +15,10 @@ const Post = require('./models/Post')
     app.use(bodyParser.json())
 
 //Rotas
-    app.get('/', function(req, res){
-      res.render('home')
+    app.get('/', function(req, res){//order abaixo é para ordenar de modo decrescente
+      Post.findAll({order: [['id', 'DESC']]}).then(function(posts){//.all foi substituido por findAll()
+        res.render('home', {posts: posts})
+      })
     })
 
     app.get('/cad', function(req, res){
